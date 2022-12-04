@@ -1,19 +1,42 @@
-<?php include 'connect.php'; ?>
 <?php
-$message = "";  //Variable pour stocker les messages d'erreur ou réussite
-$login10 = $_POST['login'];
-        // requte pour connaître si l'utilisateur est deja dans la base de données
-$user_exist ="SELECT * FROM utilisateur WHERE login = '$login10'";
-$rs = mysqli_query($mysqli,$user_exist);
+include 'connect.php';
 
-if ($_POST != NULL) {
-    $login = htmlspecialchars($_POST['login']);
-    $password = htmlspecialchars($_POST['password']);
-    $password_re = htmlspecialchars($_POST['password_re']);
+$valid = true;
+$errors = array();
+$check_password= true;
+$login = $_POST['login'];
+$password = $_POST['password'];
+$password_conf = $_POST['password_conf'];
+$sql = "INSERT INTO `utilisateurs` (`login`, `password`) VALUES ('$login', '$password')";
+$user_check = "SELECT login FROM utilisateurs WHERE login = '$login'; ";
+$check = mysqli_query($connect, $user_check);
 
-    $regex_password = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/";
-
+// Check if the form has been posted
+if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
+    if (empty($_POST['login'])) {
+        $valid = false;
+        $errors['login'] = "Le champs login est vide.";
+    }
+    if (empty($_POST['password'])) {
+        $valid = false;
+        $errors['password'] = "Le champs password est vide.";
+    }
+    if (empty($_POST['password_conf'])) {
+        $valid = false;
+        $errors['password_conf'] = "Le champs confirmation du password est vide.";
+    }
+    if ($valid) {
+    }  if (mysqli_num_rows($check) > 0) {
+        $errors['login2'] = "Ce Login existe déja";
+    } elseif ($password === $password_conf) {
+        mysqli_query($connect, $sql);
+        $errors['succes'] = "Votre compte a bien était crée";
+        /* header('Location: connexion.php'); */
+    } else {
+        $errors['diffpassword'] = "les deux password entrée ne correspondent pas";
+    }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -34,16 +57,28 @@ if ($_POST != NULL) {
                 <div class="module_connect">
                     <div class="module_warpper">
                         <div class="module_container">  <!-- Zone de connection -->
-                            <form action="" method="post" class="form_">
-                                <div class="text_form">
-                                    <h2>Inscrivez-vous</h2>
-                                </div>
-                                <input type="text" name="login" id="log" placeholder="Nom d'utilisateur" required>
-                                <input type="password" name="password" id="log" placeholder="Mot de passe" required>
-                                <input type="password" name="password_re" id="log" placeholder="Ressaisir le mot de passe" required>
-                                <input type="submit" value="S'inscrire" id="submit" name="envoyer">
-                                <?php echo $message; ?>
-                                <p id="text_membre">Déjà membre ? <a href="connexion.php" id="text_link_form">Se connecter</a></p>
+                            <form action="test2.php" method="post" accept-charset="utf-8" class="form_">
+                                <fieldset>
+                                    <legend>S'inscrire</legend>
+                                    
+                                        <div class="error">
+                                            <?php foreach($errors as $message):?>
+                                                <div><?php echo htmlspecialchars($message); ?></div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <div class="row">
+                                        <input id="log" type="text" name="login" placeholder="Login">
+                                    </div>
+                                    <div class="row">
+                                        <input id="log" type="password" name="password" placeholder="Password">
+                                    </div>
+                                    <div class="row">
+                                        <input id="log" type="password" name="password_conf" placeholder="Confirmer le password">
+                                    </div>
+                                    <div class="row">
+                                        <input type="submit" value="s'inscrire">
+                                    </div>
+                                </fieldset>
                             </form>
                         </div>
                     </div>

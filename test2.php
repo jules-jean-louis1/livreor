@@ -3,6 +3,13 @@ include 'connect.php';
 
 $valid = true;
 $errors = array();
+$check_password= true;
+$login = $_POST['login'];
+$password = $_POST['password'];
+$password_conf = $_POST['password_conf'];
+$sql = "INSERT INTO `utilisateurs` (`login`, `password`) VALUES ('$login', '$password')";
+$user_check = "SELECT login FROM utilisateurs WHERE login = '$login'; ";
+$check = mysqli_query($connect, $user_check);
 
 // Check if the form has been posted
 if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
@@ -18,25 +25,16 @@ if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
         $valid = false;
         $errors['password_conf'] = "Le champs confirmation du password est vide.";
     }
-    /* if ($valid) {
-        // The email address the email will be sent to
-        $to = "business@example.com";
-        // The email subject
-        $subject = "Contact Form Submission";
-        // Set the from and reply-to address for the email
-        $headers = "From: website@example.com\r\n"
-                 . "X-Mailer: PHP/" . phpversion();
-        // Build the body of the email
-        $mailbody = "The contact form has been filled out.\n\n"
-                  . "Name: " . $_POST['name'] . "\n"
-                  . "Email: " . $_POST['email'] . "\n"
-                  . "Message:\n" . $_POST['message'];
-        // Send the email
-        mail($to, $subject, $mailbody, $headers);
-        // Go to the thank you page
-        header("location: thankyou.html");
-        exit;
-    } */
+    if ($valid) {
+    }  if (mysqli_num_rows($check) > 0) {
+        $errors['login2'] = "Ce Login existe déja";
+    } elseif ($password === $password_conf) {
+        mysqli_query($connect, $sql);
+        $errors['succes'] = "Votre compte a bien était crée";
+        /* header('Location: connexion.php'); */
+    } else {
+        $errors['diffpassword'] = "les deux password entrée ne correspondent pas";
+    }
 }
 
 ?>
@@ -58,13 +56,13 @@ if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
                     <?php endforeach; ?>
                 </div>
             <div class="row">
-                <input id="log" type="text" name="login" value="login" placeholder="Login">
+                <input id="log" type="text" name="login" placeholder="Login">
             </div>
             <div class="row">
-                <input id="log" type="password" name="password" value="password" placeholder="Password">
+                <input id="log" type="password" name="password" placeholder="Password">
             </div>
             <div class="row">
-                <input id="log" type="password" name="password_conf" value="password" placeholder="Confirmer le password">
+                <input id="log" type="password" name="password_conf" placeholder="Confirmer le password">
             </div>
             <div class="row">
                 <input type="submit" value="s'inscrire">
