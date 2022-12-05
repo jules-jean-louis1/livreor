@@ -3,16 +3,19 @@ include 'connect.php';
 
 $valid = true;
 $errors = array();
+$login = "";
+$password = "";
+$password_conf = "";
 $check_password= true;
-$login = $_POST['login'];
-$password = $_POST['password'];
-$password_conf = $_POST['password_conf'];
 $sql = "INSERT INTO `utilisateurs` (`login`, `password`) VALUES ('$login', '$password')";
 $user_check = "SELECT login FROM utilisateurs WHERE login = '$login'; ";
 $check = mysqli_query($connect, $user_check);
 
 // Check if the form has been posted
 if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
+    $login = $_POST['login'];
+    $password = $_POST['password'];
+    $password_conf = $_POST['password_conf'];
     if (empty($_POST['login'])) {
         $valid = false;
         $errors['login'] = "Le champs login est vide.";
@@ -31,6 +34,7 @@ if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
     } elseif ($password === $password_conf) {
         mysqli_query($connect, $sql);
         $errors['succes'] = "Votre compte a bien était crée";
+        header('Location: connexion.php');
         /* header('Location: connexion.php'); */
     } else {
         $errors['diffpassword'] = "les deux password entrée ne correspondent pas";
@@ -57,7 +61,7 @@ if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
                 <div class="module_connect">
                     <div class="module_warpper">
                         <div class="module_container">  <!-- Zone de connection -->
-                            <form action="test2.php" method="post" accept-charset="utf-8" class="form_">
+                            <form action="" method="post" accept-charset="utf-8" class="form_">
                                 <fieldset>
                                     <legend>S'inscrire</legend>
                                     
@@ -77,6 +81,9 @@ if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
                                     </div>
                                     <div class="row">
                                         <input type="submit" value="s'inscrire">
+                                    </div>
+                                    <div class="row">
+                                        <a href="livre-or.php"><input type="submit" value="zone commentaire"></a>
                                     </div>
                                 </fieldset>
                             </form>
