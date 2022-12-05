@@ -11,8 +11,14 @@
     <?php
         include 'header.php';
     ?>
-    <main>
-
+    <main class="position-relative">
+        <section class="main-container_s1">
+            <div class="main_warpper">
+                <div class="main_container">
+                    <h2>Livre d'or</h2>
+                </div>
+            </div>
+        </section>
     </main>
     <?php
         include 'footer.php';

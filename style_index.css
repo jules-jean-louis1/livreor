@@ -10,8 +10,8 @@ ul {
 }
 body {
     font-family: 'Roboto', sans-serif;
-	background: url("images/bg-1.png")no-repeat;
-	background-color: #fdf403;
+	background: url("images/bg-2.png")no-repeat;
+	background-color: #0f0f0f;
 	height: 100vh;
 }
 html {
@@ -29,7 +29,8 @@ button, button:focus, button:hover, button:active {
 ######################################################################################*/
 
 .navbar_{
-    background-color: #07080e;
+    background-color: #0f0f0f;
+    backdrop-filter: blur(4px);
 }
 .navbarsub {
     display: flex;
@@ -64,12 +65,10 @@ button, button:focus, button:hover, button:active {
 	display: inline;
 	position: relative;
 }
-#menu a {
+#sub_menu a {
 	display: block;
 	line-height: 45px;
-	padding: 0 14px;
 	text-decoration: none;
-	color: #FFFFFF;
 	font-size: 16px;
 	font-family: 'Chakra Petch', sans-serif;
 	font-weight: 700;
@@ -129,22 +128,34 @@ button, button:focus, button:hover, button:active {
 	color: #444444;
 }
 .btn_inscri {
-    background: url("images/button_header2.svg") no-repeat;
     text-transform: capitalize;
 	flex: 0 0 auto;
 	width: 108px;
 	border: none;
 }
 .btn_co {
-    background: url("images/button_header.svg") no-repeat;
     text-transform: capitalize;
-    color: #111;
-	flex: 0 0 auto;
-	width: 108px;
-	border: none;
+    color: #00f0ff;
+    flex: 0 0 auto;
+    width: 130px;
+    border: 1px solid #f1f1f173;
+    background: transparent;
+    border-radius: 40px;
+    height: 34px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	font-family: 'Chakra Petch', sans-serif;
+	font-weight: 700;
 }
 .btn_co a {
-    color: #FFFFFF;
+    color: #00f0ff;
+}
+.btn_co img {
+	width: 22px;
+}
+.filter_blue {
+	filter: invert(72%) sepia(54%) saturate(1944%) hue-rotate(134deg) brightness(101%) contrast(107%);
 }
 .color_btn ul {
     display: flex;
@@ -159,16 +170,18 @@ button, button:focus, button:hover, button:active {
 	width: 50px;
 }
 
-main.js-warp-hide.bg-gray-dark-mktg.d-flex.flex-auto.flex-column.overflow-hidden.position-relative {
-    height: 74.82vh;
-}
-
-
-.main-container_s1{
+main.position-relative {
+    height: 92vh;
 	display: flex;
-	justify-content: center;
-	padding-top: 310px;
-	
+    align-items: center;
+    justify-content: center;
+}
+.main_warpper {
+    width: 800px;
+    height: 600px;
+    background: #0f0f0f;
+    border-radius: 20px;
+    color: white;
 }
 
 .title_main {
