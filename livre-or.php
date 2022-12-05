@@ -1,15 +1,19 @@
 <?php
 session_start();
 include 'connect.php';
+?>
 
+<?php if($_SESSION['login'] != null){ ?>
+
+<?php
 $commentaire = "";
 $id = $_SESSION['id'];
 $currentDate = date('Y-m-d H:i:s');
-$poster_com = "INSERT INTO `commentaires` (`id`,`commentaire`, `id`, `date`) VALUES ( NULL,'$commentaire', '$id', '$currentDate')";
+/* $poster = "INSERT INTO `commentaires` (`id`,`commentaire`, `id`, `date`) VALUES ( NULL,'$commentaire', '$id', '$currentDate')"; */
 $valid = true;
 $errors = [];
 
-if (isset($_POST['submit'])) {
+/* if (isset($_POST['submit'])) {
     if (isset($_POST['message'])) {
         $valid = false;
         $errors['message'] = 'Zone message vide';
@@ -20,20 +24,24 @@ if (isset($_POST['submit'])) {
         $currentDate = date('Y-m-d H:i:s');
         mysqli_query($connect, $poster_com);
     }
+} */
+if (isset($_POST['submit'])) {
+    if ($_POST['message'] != null) {
+        $commentaire = $_POST['message'];
+        $id = $_SESSION['id'];
+        $currentDate = date('Y-m-d H:i:s');
+        $push_com = mysqli_query($connect,"INSERT INTO `commentaires` (`id`,`commentaire`, `id_utilisateur`, `date`) VALUES (NULL,'$commentaire', '$id', '$currentDate')");
+    } else {
+        $errors['no_message'] = "Aucun message a poster";
+    }
 }
 /* $row = mysqli_query($connect,"SELECT * FROM `commentaires` ORDER BY `date` ASC "); */
-$row = mysqli_query($connect,"SELECT * FROM `commentaires`");
+/* $row = mysqli_query($connect,"SELECT * FROM `commentaires`ORDER BY `date` DESC"); */
+$row = mysqli_query($connect,"SELECT `commentaire`,`login`,`date` FROM `utilisateurs` INNER JOIN `commentaires` WHERE utilisateurs.id = commentaires.id_utilisateur ORDER BY `date` DESC;"); 
 $result = $row->fetch_all();
-var_dump($result);
 
-for ($i=0; isset($result[$i]) ; $i++) { 
-    echo "<tr>";
-    for ($j=1; isset($result[$i][$j]) ; $j++) 
-    { 
-        echo "<td>" . $result[$i][$j] . "</td>"; 
-    }
-    echo "</tr>";
-}
+
+
 
 /* $id_user = mysqli_query($connect, "SELECT id_utilisateur FROM `commentaires`; ");
 $result_user = $id_user->fetch_all();
@@ -49,7 +57,10 @@ for ($i=0; isset($result_user[$i]) ; $i++) {
         }
     }
 } */
-
+if (isset($_POST['logout'])) {
+    session_destroy();
+    header('Location: index.php');
+}
 ?>
 
 
@@ -65,15 +76,29 @@ for ($i=0; isset($result_user[$i]) ; $i++) {
     </div>
     <textarea name="message" id="" cols="30" rows="10"></textarea>
     <input type="submit" value="Poster un commentaire" name="submit">
+    <form action="" method="post">
+        <input type="submit" value="logout" name="logout">
+    </form>
     <legend>Derniers commentaires</legend>
-    <div>
+    <table>
+        <tr>
+            <th>Message</th>
+            <th>Auteur</th>
+            <th>Date</th>
+        </tr>
         <?php
-        
+            for ($i=0; isset($result[$i]) ; $i++) { 
+                echo "<tr>";
+                for ($j=0; isset($result[$i][$j]) ; $j++) 
+                { 
+                    echo "<td>" . $result[$i][$j] . "</td>"; 
+                }
+                echo "</tr>";
+            }
         ?>
-        <div class="error">
-            <?php foreach($login_user as $message):?>
-                <div><?php echo htmlspecialchars($message); ?></div>
-            <?php endforeach; ?>
-        </div>
+    </table>
+    <div>
     </div>
 </form>
+
+<?php } else{header('location: connexion.php');} ?>
