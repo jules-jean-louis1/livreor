@@ -1,42 +1,80 @@
 <?php
+session_start();
 include 'connect.php';
-$row = mysqli_query($connect,"SELECT `commentaire`,`login`,`date` FROM `utilisateurs` INNER JOIN `commentaires` WHERE utilisateurs.id = commentaires.id_utilisateur ORDER BY `date` DESC;"); 
-$result = $row->fetch_all();
-if (isset($_POST['logout'])) {
-    session_destroy();
-    header('Location: index.php');
-}
 ?>
-<?php include 'header.php' ?>
+
 <?php if($_SESSION['login'] != null){ ?>
-    <div class="profil">
-    <?php echo "Boujour"." ".$_SESSION['login'] ?>
-</div>
-<form action="" method="post">
-    <form action="" method="post">
-        <input type="submit" value="logout" name="logout">
-    </form>
-    <legend>Derniers commentaires</legend>
-    <table>
-        <tr>
-            <th>Message</th>
-            <th>Auteur</th>
-            <th>Date</th>
-        </tr>
-        <?php
-            for ($i=0; isset($result[$i]) ; $i++) { 
-                echo "<tr>";
-                for ($j=0; isset($result[$i][$j]) ; $j++) 
-                { 
-                    echo "<td>" . $result[$i][$j] . "</td>"; 
-                }
-                echo "</tr>";
-            }
-        ?>
-    </table>
-    <div>
-    </div>
-</form>
 
+<?php
+$commentaire = "";
+$id = $_SESSION['id'];
+$currentDate = date('Y-m-d H:i:s');
+/* $poster = "INSERT INTO `commentaires` (`id`,`commentaire`, `id`, `date`) VALUES ( NULL,'$commentaire', '$id', '$currentDate')"; */
+$valid = true;
+$errors = [];
 
+/* if (isset($_POST['submit'])) {
+    if (isset($_POST['message'])) {
+        $valid = false;
+        $errors['message'] = 'Zone message vide';
+    }
+    if ($valid) {
+        $commentaire = $_POST['message'];
+        $id = $_SESSION['id'];
+        $currentDate = date('Y-m-d H:i:s');
+        mysqli_query($connect, $poster_com);
+    }
+} */
+if (isset($_POST['submit'])) {
+    if ($_POST['message'] != null) {
+        $commentaire = $_POST['message'];
+        $id = $_SESSION['id'];
+        $currentDate = date('Y-m-d H:i:s');
+        $push_com = mysqli_query($connect,"INSERT INTO `commentaires` (`id`,`commentaire`, `id_utilisateur`, `date`) VALUES (NULL,'$commentaire', '$id', '$currentDate')");
+    } else {
+        $errors['no_message'] = "Aucun message a poster";
+    }
+}
+
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_index.css">
+    <title>Livre d'or</title>
+</head>
+<body>
+    <?php
+        include 'header.php';
+    ?>
+    <main class="main_com">
+        <section class="warpper_add_com">
+            <div class="container_com">
+                <div class="form_04">
+                    <h2>Poster un commentaire</h2>
+                    <div class="profil">
+                        <?php echo "Boujour"." ".$_SESSION['login'] ?>
+                    </div>
+                    <form action="" method="post">
+                        <div class="error">
+                            <img src="images/cancel_logo.svg" alt="" style="width: 30px;padding-right: 5px;" class="filter_red">
+                            <?php foreach($errors as $message):?>
+                                <div><?php echo htmlspecialchars($message); ?></div>
+                        <?php endforeach; ?>
+                        </div>
+                        <textarea name="message" id="" style="width: 850px; height: 265px;" placeholder="Entrer votre commentaire ici"></textarea>
+                        <input type="submit" value="Poster un commentaire" name="submit" id="submit_btn">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+<?php
+    include 'footer.php';
+?>
+</body>
+</html>
 <?php } else{header('location: connexion.php');} ?>

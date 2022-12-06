@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1355px" height="972px" viewBox="0 0 1355 972" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Active" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" opacity="0.200000003" stroke-linejoin="round" stroke-dasharray="1,20,1,20">
+        <g id="Homepage-Desktop" stroke="#2E9FFF" stroke-width="3">
+            <g id="herobg" transform="translate(-319.000000, -201.000000)">
+                <g id="lines">
+                    <path d="M291.979954,1017.1668 C291.979954,1017.1668 444.979954,711.166804 770.979954,464.166804 C1096.97995,217.166804 1430.97995,176.166804 1430.97995,176.166804" id="Line" transform="translate(861.479954, 596.666804) rotate(8.000000) translate(-861.479954, -596.666804) "></path>
+                    <path d="M493.531814,1254.1668 C493.531814,1254.1668 646.531814,948.166804 972.531814,701.166804 C1298.53181,454.166804 1632.53181,413.166804 1632.53181,413.166804" id="Line" transform="translate(1063.031814, 833.666804) rotate(8.000000) translate(-1063.031814, -833.666804) "></path>
+                    <path d="M52.9799541,916.166804 C52.9799541,916.166804 205.979954,610.166804 531.979954,363.166804 C857.979954,116.166804 1191.97995,75.1668039 1191.97995,75.1668039" id="Line" transform="translate(622.479954, 495.666804) rotate(8.000000) translate(-622.479954, -495.666804) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

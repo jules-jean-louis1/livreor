@@ -4,7 +4,6 @@ include 'connect.php';      //On joint la connexion à la base de donnée
 
 $conn = mysqli_query($connect, "SELECT * FROM `utilisateurs`");
 $row = $conn->fetch_all();
-var_dump($row);
 $valid = true;
 $errors = [];
 if (isset($_POST['login'], $_POST['password'])) {
@@ -32,10 +31,19 @@ if (isset($_POST['login'], $_POST['password'])) {
     }
 }
 
-echo $_SESSION['login'];
 ?>
-
-        <main class="flex-row">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_index.css">
+    <title>Se connecter</title>
+</head>
+<body>
+<?php include 'header.php' ?>
+        <main class="main_com">
             <div class="flex-row" id="form-container">
                 <form action="" Method="POST" class="flex-column">
                     <label for="login">Nom d'utilisateur</label>
@@ -53,3 +61,8 @@ echo $_SESSION['login'];
                 </form>
             </div>
         </main>
+        <?php
+        include 'footer.php';
+    ?>
+</body>
+</html>

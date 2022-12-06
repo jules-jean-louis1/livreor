@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,6 +18,8 @@
             <div class="main_warpper">
                 <div class="main_container">
                     <h2>Livre d'or</h2>
+                    <p>Exprimer vous</p>
+                    <p>Crée-vous un compte pour commencer à commenter.</p>
                 </div>
             </div>
         </section>
