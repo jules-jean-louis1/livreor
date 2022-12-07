@@ -1,10 +1,10 @@
 <?php
-session_start();
-include 'connect.php';
+session_start();            //Démarage de la session
+include 'connect.php';      // Ajout des variables pour la connexion a la base de données 
 
-$valid = true;
-$errors = array();
-$login = "";
+$valid = true;              // Varaible booleen pour testé si tout les champs sont bien remplie
+$errors = array();          // initialisation de du tableau pour stocker les messages d'erreur
+$login = "";                // ini des variable pour l'utilisation dans une requête
 $password = "";
 $password_conf = "";
 $check_password= true;
