@@ -53,8 +53,8 @@ if (isset($_POST['logout'])) {
     <main class="position-relative">
         <section class="s1_connect">
             <div class="module_connect">
-                <div class="module_warpper">
-                    <div class="module_container">
+                <div class="wapper_com">
+                    <div class="mcontainer">
                         <form action="" method="POST" class="form_">
                             <div class="compte_title">
                                 <h2>Paramètres du compte utilisateur</h2>
@@ -64,7 +64,7 @@ if (isset($_POST['logout'])) {
                             <input type="text" name="login" id="log" placeholder="Changer de login">
                             <label for=""><?php echo "Password : ".$_SESSION['password'];?></label>
                             <input type="text" name="mdp" id="log" placeholder="Changer de Mot de passe">
-                            <input type="submit" value="Effectuer les changements" name="submit_btn"  id="submit" >
+                            <input type="submit" value="Effectuer les changements" name="submit_btn" class="btn_login" >
                                 <div class="error">
                                     <?php foreach($errors as $message):?>
                                         <div><?php echo htmlspecialchars($message); ?></div>

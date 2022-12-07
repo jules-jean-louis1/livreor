@@ -1,6 +1,4 @@
 <?php
-$_SESSION['id'] = "";
-$_SESSION['login'] = "";
 ?>
 
 
