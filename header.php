@@ -1,7 +1,3 @@
-<?php
-?>
-
-
 <header>
     <div class="navbar_">
         <div class="navbarsub">
@@ -25,18 +21,18 @@
             <div id="menu" class="color_btn">
                 <ul>
                     <li>
-                        <?php if ($_SESSION['id'] != null) { ?>
+                        <?php if (isset($_SESSION['id']) != null) : ?>
                             <button class="btn_inscri">
                             <a href="deconnexion.php">Se deconnecter</a>
                             </button>
-                        <?php } else { ?>
+                        <?php else : ?>
                             <button class="btn_inscri">
                             <a href="inscription.php">S'inscrire</a>
                             </button>
-                        <?php } ?>
+                        <?php endif ?>
                     </li>
                     <li>
-                        <?php if ($_SESSION['id'] != null) { ?>
+                        <?php if (isset($_SESSION['id']) != null) { ?>
                             <button class="btn_co">
                             <img src="images/account_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="" class="filter_blue">
                                 <a href="profil.php"><?php echo $_SESSION['login'];?></a>
@@ -47,9 +43,6 @@
                                 <a href='connexion.php'>Se connecter</a>
                             </button>
                         <?php } ?>
-                        <!-- <button class="btn_co">
-                        
-                        </button> -->
                     </li>
                 </ul>
             </div>
