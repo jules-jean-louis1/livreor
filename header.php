@@ -1,3 +1,9 @@
+<?php
+$_SESSION['id'] = "";
+$_SESSION['login'] = "";
+?>
+
+
 <header>
     <div class="navbar_">
         <div class="navbarsub">
@@ -6,7 +12,7 @@
                     <nav id='menu'>
                         <input type='checkbox' id='responsive-menu' onclick='updatemenu()'>
                         <ul id="sub_menu">
-                            <li><a id="logo_title" href="index.php">guestbook</a></li>
+                            <li><a id="logo_title" href="index.php">Livre d'or</a></li>
                             <li style="padding-top: 0.5px;"><a href="profil.php">Profil</a></li>
                             <li style="padding-top: 0.5px;"><a class='dropdown-arrow' href='http://'>Commenter</a>
                             <ul class='sub-menus'>
@@ -27,7 +33,7 @@
                             </button>
                         <?php } else { ?>
                             <button class="btn_inscri">
-                            <a href="">S'inscrire</a>
+                            <a href="inscription.php">S'inscrire</a>
                             </button>
                         <?php } ?>
                     </li>
