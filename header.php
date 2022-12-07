@@ -21,7 +21,7 @@
             <div id="menu" class="color_btn">
                 <ul>
                     <li>
-                        <?php if ($_SESSION['id'] != null) { ?>
+                        <?php if (isset($_SESSION['id']) != null) { ?>
                             <button class="btn_inscri">
                             <a href="deconnexion.php">Se deconnecter</a>
                             </button>
