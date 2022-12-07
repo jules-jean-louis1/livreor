@@ -273,6 +273,96 @@ main.position-relative {
 }
 /*###################################################################################################
 #####################################################################################################
+############################   	SECTION INSCRIPTION	     ###########################################
+#####################################################################################################
+###################################################################################################*/
+
+a {
+    text-decoration: none;
+}
+.s1_connect {
+    width: 950px;
+    height: 600px;
+    border-radius: 5px;
+    border: 1px solid #e0e3e9;
+    box-shadow: 0 1px 2px #e0e3e9;
+    background: #2e9fff url(images/back-color.png) no-repeat;
+    background-size: cover;
+}
+
+.mcontainer {
+    background: #fff;
+    margin: 50px 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 36vh;
+    border-radius: 3px;
+  }
+  .form_ {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 400px;
+  }
+.form_ h2 {
+    color: #2e9fff;
+    font-family: 'Chakra Petch', sans-serif;
+	font-weight: 900;
+}
+#log {
+    position: relative;
+    font-size: 16px;
+    height: 30px;
+    padding: 10px;
+    width: 250px;
+    border: 1px solid azure;
+    border-radius: 40px;
+}
+.btn_login {
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding: 10px 15px;
+    font-size: 18px;
+    font-family: 'Chakra Petch', sans-serif;
+	font-weight: 900;
+    color: #2e9fff;
+    background-color: #fff;  
+    display: flex;
+    gap: 5px;
+    width: 250px;
+    text-transform: uppercase;
+}
+.btn_login:hover {
+    background-color: #ffffffb5;
+    transition: 5ms ease-in-out;
+    border: 1px solid #fff;
+}
+.btn_log {
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding: 10px 15px;
+    font-size: 18px;
+    font-family: 'Chakra Petch', sans-serif;
+	font-weight: 900;
+    color: #2e9fff;
+    background-color: #fff;  
+    display: flex;
+    gap: 5px;
+    width: 250px;
+    text-transform: uppercase;
+    justify-content: center;
+}
+.btn_log:hover {
+    background-color: #ffffffb5;
+    transition: 5ms ease-in-out;
+    border: 1px solid #fff;
+}
+
+
+/*###################################################################################################
+#####################################################################################################
 ############################	SECTION LIVRE D'OR  	  ###########################################
 #####################################################################################################
 ###################################################################################################*/
@@ -460,12 +550,6 @@ textarea{
    }
 .error {
     color: rgb(255, 0, 0);
-    width: 100%;
-    height: 35px;
-    border: 1px solid red;
-    background: #ff00003a;
-    display: flex;
-    align-items: center;
 }
 .filter_red {
     filter: invert(30%) sepia(97%) saturate(5759%) hue-rotate(353deg) brightness(106%) contrast(131%);

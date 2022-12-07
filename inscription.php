@@ -57,14 +57,14 @@ if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
     <?php
         include 'header.php';
     ?>
-    <main class="position-relative">
+    <main class="main_com">
             <section class="s1_connect">
                 <div class="module_connect">
-                    <div class="module_warpper">
-                        <div class="module_container">  <!-- Zone de connection -->
+                    <div class="wapper_com">
+                        <div class="mcontainer">  
+                            <img src="images/account_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="account-logo" class="filter_blue" style="width: 95px;">
                             <form action="" method="post" accept-charset="utf-8" class="form_">
-                                <fieldset>
-                                    <legend>S'inscrire</legend>
+                                    <h2>S'inscrire</h2>
                                     
                                         <div class="error">
                                             <?php foreach($errors as $message):?>
@@ -80,13 +80,20 @@ if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
                                     <div class="row">
                                         <input id="log" type="password" name="password_conf" placeholder="Confirmer le password">
                                     </div>
-                                    <div class="row">
-                                        <input type="submit" value="s'inscrire">
+                                    <div class="already_membre">
+                                        <p>Déjà inscrit ? <a href="connexion.php">Connectez-Vous</a></p>
                                     </div>
                                     <div class="row">
-                                        <a href="livre-or.php"><input type="submit" value="zone commentaire"></a>
+                                        <input type="submit" value="s'inscrire" class="btn_login">
                                     </div>
-                                </fieldset>
+                                    <div class="row">
+                                        <a href="livre-or.php">
+                                            <button class="btn_log">    
+                                                <img src="images/comment.svg" alt="" class="filter_blue" style="width: 25px;">
+                                                commenter
+                                            </button>
+                                        </a>
+                                    </div>
                             </form>
                         </div>
                     </div>
