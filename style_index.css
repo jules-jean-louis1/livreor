@@ -276,9 +276,58 @@ main.position-relative {
 ############################	  SECTION CONNEXION 	  ###########################################
 #####################################################################################################
 ###################################################################################################*/
-
-
-
+.mcontainer2 {
+    background: #fff;
+    margin: 50px 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 36vh;
+    border-radius: 3px;
+  }
+.flex-column {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 400px;
+	text-align: center;
+  }
+.form_ h2 {
+    color: #2e9fff;
+    font-family: 'Chakra Petch', sans-serif;
+	font-weight: 900;
+}
+.log_01 {
+    position: relative;
+    font-size: 16px;
+    height: 30px;
+    padding: 10px;
+    width: 250px;
+    border: 1px solid azure;
+    border-radius: 40px;
+}
+.btn_login_01 {
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding: 10px 15px;
+    font-size: 18px;
+    font-family: 'Chakra Petch', sans-serif;
+	font-weight: 900;
+    color: #fff;
+    background-color: #2e9fff;  
+    display: flex;
+    gap: 5px;
+    width: 250px;
+    text-transform: uppercase;
+	justify-content: center;
+}
+.btn_login_01:hover {
+    background-color: #ffffffb5;
+    transition: 5ms ease-in-out;
+    color: #2e9fff;
+    border: 1px solid #2e9fff;
+}
 
 
 

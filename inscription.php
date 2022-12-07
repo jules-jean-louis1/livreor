@@ -84,7 +84,7 @@ if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
                                         <p>Déjà inscrit ? <a href="connexion.php">Connectez-Vous</a></p>
                                     </div>
                                     <div class="row">
-                                        <input type="submit" value="s'inscrire" class="btn_login">
+                                        <input type="submit" value="s'inscrire" class="btn_co">
                                     </div>
                                     <div class="row">
                                         <a href="livre-or.php">
