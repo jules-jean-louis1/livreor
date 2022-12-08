@@ -54,29 +54,31 @@ if (isset($_POST['logout'])) {
         <section class="s1_connect">
             <div class="module_connect">
                 <div class="wapper_com">
-                    <div class="mcontainer">
-                        <form action="" method="POST" class="form_">
+                    <div class="mcontainer_connec">
+                        <form action="" method="POST" class="form_connec">
                             <div class="compte_title">
                                 <h2>Paramètres du compte utilisateur</h2>
                                 <p>Vous pouvez ici effectuer des changements sur vos information personnels</p>
                             </div>
-                            <label for=""><?php echo "Login : ".$_SESSION['login'];?></label>
-                            <input type="text" name="login" id="log" placeholder="Changer de login">
-                            <label for=""><?php echo "Password : ".$_SESSION['password'];?></label>
-                            <input type="text" name="mdp" id="log" placeholder="Changer de Mot de passe">
-                            <input type="submit" value="Effectuer les changements" name="submit_btn" class="btn_login" >
-                                <div class="error">
+                            <div class="error">
                                     <?php foreach($errors as $message):?>
                                         <div><?php echo htmlspecialchars($message); ?></div>
                                     <?php endforeach; ?>
-                                </div>
+                            </div>
+                            <label for=""><?php echo "Login : ".$_SESSION['login'];?></label>
+                            <input type="text" name="login" id="log_connec" placeholder="Changer de login">
+                            <label for=""><?php echo "Password : ".$_SESSION['password'];?></label>
+                            <input type="text" name="mdp" id="log_connec" placeholder="Changer de Mot de passe">
+                            <input type="submit" value="Effectuer les changements" name="submit_btn" class="btn_change" > 
                         </form>
-                        <div class="link_com">
-                            <button><a href="livre-or.php">Livre d'or</a></button>
+                        <div class="btn_clear_connec">
+                            <div class="link_com">
+                                <button class="btn_livreor"><a href="livre-or.php">Livre d'or</a></button>
+                            </div>
+                            <div class="link_com">
+                                <button class="btn_logout_connec"><a href="deconnexion.php">logout</a></button>
+                            </div>
                         </div>
-                        <form action="" method="post">
-                            <input type="submit" value="logout" name="logout">
-                        </form>
                     </div>
                 </div>
             </div>

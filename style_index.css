@@ -232,7 +232,6 @@ main.position-relative {
 	color: #ffffff;
 	background: #2e9fff url(images/back-color.png) no-repeat;
 	background-size:cover;
-	
 }
 .main_warpper::before::after{
 	opacity: .2;
@@ -276,38 +275,31 @@ main.position-relative {
 ############################	  SECTION CONNEXION 	  ###########################################
 #####################################################################################################
 ###################################################################################################*/
-.mcontainer2 {
+
+.mcontainer_connec {
     background: #fff;
-    margin: 50px 55px;
+    margin: 57px 55px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 36vh;
+    width: 56vh;
     border-radius: 3px;
-  }
-.flex-column {
+    justify-content: center;
+    padding: 20px 15px;
+}
+.form_connec {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     height: 400px;
-	text-align: center;
-  }
-.form_ h2 {
+}
+.form_connec h2 {
     color: #2e9fff;
     font-family: 'Chakra Petch', sans-serif;
 	font-weight: 900;
 }
-.log_01 {
-    position: relative;
-    font-size: 16px;
-    height: 30px;
-    padding: 10px;
-    width: 250px;
-    border: 1px solid azure;
-    border-radius: 40px;
-}
-.btn_login_01 {
+.btn_change {
     border: 1px solid transparent;
     border-radius: 50px;
     padding: 10px 15px;
@@ -318,20 +310,48 @@ main.position-relative {
     background-color: #2e9fff;  
     display: flex;
     gap: 5px;
-    width: 250px;
+    width: 320px;
     text-transform: uppercase;
-	justify-content: center;
 }
-.btn_login_01:hover {
+.btn_change:hover {
     background-color: #ffffffb5;
     transition: 5ms ease-in-out;
     color: #2e9fff;
     border: 1px solid #2e9fff;
 }
-
-
-
-
+.btn_clear_connec{
+    display: flex;
+    gap: 10px;
+}
+.btn_livreor, .btn_logout_connec {
+    border: 1px solid #2e9fff;
+    border-radius: 50px;
+    padding: 10px 15px;
+    font-size: 18px;
+    font-family: 'Chakra Petch', sans-serif;
+	font-weight: 900;
+    color: #2e9fff;
+    background-color: #fff;  
+    display: flex;
+    gap: 5px;
+    width: 150px;
+    text-transform: uppercase;
+    justify-content: center;
+}
+.btn_livreor:hover, .btn_logout_connec:hover {
+    background-color: #ffffffb5;
+    transition: 5ms ease-in-out;
+    border: 1px solid #2e9fff;
+}
+#log_connec {
+    position: relative;
+    font-size: 16px;
+    height: 30px;
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #2e9fff;
+    border-radius: 40px;
+}
 
 
 
