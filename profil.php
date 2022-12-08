@@ -8,14 +8,14 @@ include 'connect.php';
 } 
 ?>
 <?php
-$conn = mysqli_query($connect,"SELECT * FROM `utilisateurs`");
-$row = $conn->fetch_all();
 $errors = [];
 
 if (isset($_POST['submit_btn'])) {
     $login = $_POST['login'];
     $password = $_POST['password'];
     $id = $_SESSION['id'];
+    $conn = mysqli_query($connect,"SELECT * FROM `utilisateurs`");
+    $row = $conn->fetch_all();
     $uplogin = "UPDATE `utilisateurs` SET `login` = '$login' WHERE `connexion`.`id` = '$id'";
     $uppassword = "UPDATE `utilisateurs` SET `password` = '$password' WHERE `connexion`.`id` = '$id'";
         if (!empty($_POST['login'])) {
