@@ -16,6 +16,7 @@ if (isset($_POST['logout'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_index.css">
+    <link rel="icon" href="images/bbule-logo.png">
     <title>Section commentaires</title>
 </head>
 <body>
@@ -30,9 +31,9 @@ if (isset($_POST['logout'])) {
                     <div class="table-wrapper">
                         <table  class="fl-table">
                             <tr>
-                                <th>Date</th>
-                                <th>Auteur</th>
-                                <th>Message</th>
+                                <th class="th_table_alt1">Date</th>
+                                <th class="th_table_alt1">Auteur</th>
+                                <th class="th_table_alt1">Message</th>
                             </tr>
                             <?php
                                 for ($i=0; isset($result[$i]) ; $i++) {

@@ -1,12 +1,12 @@
 <?php
 session_start();
-include 'connect.php';      //On joint la connexion à la base de donnée
+include 'connect.php';      //On inporte la connexion à la base de donnée
 
-$conn = mysqli_query($connect, "SELECT * FROM `utilisateurs`");
+$conn = mysqli_query($connect, "SELECT * FROM `utilisateurs`");     // requête dans la table utilisateurs
 $row = $conn->fetch_all();
-$valid = true;
-$errors = [];
-if (isset($_POST['login'], $_POST['password'])) {
+$valid = true;                          // booleen pour les tests des champs vide
+$errors = [];                           // Création d'un tableau pour afficher les erreurs
+if (isset($_POST['login'], $_POST['password'])) {           // récuperation du login et password
     if (empty($_POST['login'])) {
         $valid = false;
         $errors['login'] = "Champs login vide.";
@@ -46,16 +46,20 @@ if (isset($_POST['login'], $_POST['password'])) {
 <?php include 'header.php' ?>
         <main class="main_com">
             <section class="s1_connect">
-                <div class="module_connect">
+                <div class="module_connexion">
                     <div class="wapper_com">
                         <div class="mcontainer2">
                             <div class="flex-row" id="form-container">
+                            <img src="images/account_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="account-logo" class="filter_blue" style="width: 95px;">
                                 <form action="" Method="POST" class="flex-column">
-                                    <label for="login">Nom d'utilisateur</label>
-                                    <input type="text" id="login" name="login" class="log_01">
-                                    <label for="password">Mot de passe</label>
-                                    <input type="password" id="password" name="password" class="log_01">
-                                    <input type="submit" id="mybutton" value="Se connecter" class="btn_login_01">
+                                    <div class="container_connect">
+                                        <label for="login">Nom d'utilisateur</label>
+                                        <input type="text" name="login" id="log_connec"  placeholder="Login">
+                                        <label for="password">Password</label>
+                                        <input type="password" name="password" id="log_connec"  placeholder="Password">
+                                        <p><a href="inscription.php">S'inscrire</a></p>
+                                    </div>
+                                    <input type="submit" value="Se connecter" class="btn_change" id="connect_btn">
                                         <div class="error">
                                             <?php foreach($errors as $message):?>
                                                 <div><?php echo htmlspecialchars($message); ?></div>

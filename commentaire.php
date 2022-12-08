@@ -9,22 +9,9 @@ include 'connect.php';
 $commentaire = "";
 $id = $_SESSION['id'];
 $currentDate = date('Y-m-d H:i:s');
-/* $poster = "INSERT INTO `commentaires` (`id`,`commentaire`, `id`, `date`) VALUES ( NULL,'$commentaire', '$id', '$currentDate')"; */
 $valid = true;
 $errors = [];
 
-/* if (isset($_POST['submit'])) {
-    if (isset($_POST['message'])) {
-        $valid = false;
-        $errors['message'] = 'Zone message vide';
-    }
-    if ($valid) {
-        $commentaire = $_POST['message'];
-        $id = $_SESSION['id'];
-        $currentDate = date('Y-m-d H:i:s');
-        mysqli_query($connect, $poster_com);
-    }
-} */
 if (isset($_POST['submit'])) {
     if ($_POST['message'] != null) {
         $commentaire = $_POST['message'];
@@ -37,6 +24,7 @@ if (isset($_POST['submit'])) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
