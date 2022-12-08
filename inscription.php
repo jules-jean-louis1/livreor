@@ -4,44 +4,47 @@ include 'connect.php';      // Ajout des variables pour la connexion a la base d
 
 $valid = true;              // Varaible booleen pour testé si tout les champs sont bien remplie
 $errors = array();          // initialisation de du tableau pour stocker les messages d'erreur
-$login = "";                // ini des variable pour l'utilisation dans une requête
-$password = "";
-$password_conf = "";
-$check_password= true;
-$sql = "INSERT INTO `utilisateurs` (`id`,`login`, `password`) VALUES (NULL,'$login', '$password')";
-$user_check = "SELECT login FROM utilisateurs WHERE login = '$login'; ";
-$check = mysqli_query($connect, $user_check);
+              // ini des variable pour l'utilisation dans une requête
 
 // Check if the form has been posted
-if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
-    $login = $_POST['login'];
-    $password = $_POST['password'];
-    $password_conf = $_POST['password_conf'];
-    if (empty($_POST['login'])) {
-        $valid = false;
-        $errors['login'] = "Le champs login est vide.";
-    }
-    if (empty($_POST['password'])) {
-        $valid = false;
-        $errors['password'] = "Le champs password est vide.";
-    }
-    if (empty($_POST['password_conf'])) {
-        $valid = false;
-        $errors['password_conf'] = "Le champs confirmation du password est vide.";
-    }
-    if ($valid) {
-    }  if (mysqli_num_rows($check) > 0) {
-        $errors['login2'] = "Ce Login existe déja";
-    } elseif ($password === $password_conf) {
-        mysqli_query($connect, $sql);
-        $errors['succes'] = "Votre compte a bien était crée";
-        header('Location: connexion.php');
-        /* header('Location: connexion.php'); */
-    } else {
-        $errors['diffpassword'] = "les deux password entrée ne correspondent pas";
-    }
-}
 
+    if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
+
+        $login = $_POST['login'];
+        $password = $_POST['password'];
+        $password_conf = $_POST['password_conf'];
+
+        $sql = "INSERT INTO `utilisateurs` (`login`, `password`) VALUES ('$login', '$password')";
+        $user_check = "SELECT login FROM utilisateurs WHERE login = '$login'; ";
+        $check = mysqli_query($connect, $user_check);
+
+
+        if (empty($_POST['login'])) {   
+            $valid = false;
+            $errors['login'] = "Le champs login est vide.";
+        }
+        if (empty($_POST['password'])) {
+            $valid = false;
+            $errors['password'] = "Le champs password est vide.";
+        }
+        if (empty($_POST['password_conf'])) {
+            $valid = false;
+            $errors['password_conf'] = "Le champs confirmation du password est vide.";
+        }
+        if ($valid == true) {
+            if (mysqli_num_rows($check) > 0) {
+                $errors['login2'] = "Ce Login existe déja";
+            } elseif ($password === $password_conf) {
+                mysqli_query($connect, $sql);
+                $errors['succes'] = "Votre compte a bien était crée";
+                header('Location: connexion.php');
+    
+            } else {
+                $errors['diffpassword'] = "les deux password entrée ne correspondent pas";
+            }
+        }
+    }
+echo $_POST['login'], $_POST['password'], $_POST['password_conf'];
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +88,7 @@ if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
                                         <p>Déjà inscrit ? <a href="connexion.php">Connectez-Vous</a></p>
                                     </div>
                                     <div class="row">
-                                        <input type="submit" value="s'inscrire" class="btn_co">
+                                        <input type="submit" value="s'inscrire" class="btn_co" name="signin">
                                     </div>
                                     <div class="row">
                                         <a href="livre-or.php">
