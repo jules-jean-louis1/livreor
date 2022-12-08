@@ -78,3 +78,54 @@ if ($_POST != NULL){
         <input type="submit" value="submit">
     </form>
 </main>
+
+{
+    "workbench.colorCustomizations": {
+        "editor.background": "#0d1117",
+        /* "editor.foreground": "#d4fe01", */
+        "sideBar.background": "#010409",
+        "sideBar.border": "#6a6e72",
+        "sideBar.foreground": "#c9d1d9",
+        "sideBarSectionHeader.background": "#0d1117",
+        "sideBarSectionHeader.foreground": "#ffffff",
+        "statusBar.background": "#0d1117",
+        "statusBar.border": "#6a6e72",               // couleur barre du bas
+        /* "scrollbarSlider.activeBackground": "#00f0ff", */
+        "scrollbarSlider.hoverBackground": "#2ea043",
+        "toolbar.hoverBackground": "#0d1117",
+        "menu.background": "#010409",
+        "menu.border": "#6a6e72",
+        "menu.selectionBackground": "#161b22",          // selection surbirance menu
+        "titleBar.activeBackground": "#010409",         // couleur de la bar menu
+        "titleBar.border": "#6a6e72",
+        "button.background": "#238636",
+        "input.background": "#0d1117",
+        "inputOption.activeBorder": "#ff0000",
+        "input.border": "#6a6e72",
+        "button.foreground": "#c9d1d9",
+        "button.hoverBackground": "#2ea043",
+        "selection.background": "#ff0000",
+        /* "menu.selectionBorder": "#6a6e72", */
+        "badge.foreground": "#161b22",
+        "badge.background": "#ef0e3b",
+        "activityBar.activeBackground": "#0d1117",
+        "activityBar.activeBorder": "#ef0e3b",
+        "activityBar.background": "#0d1117",
+        "activityBar.foreground":"#c9d1d9",
+        "activityBarBadge.background": "#ef0e3b",
+        "activityBarBadge.foreground":"#0d1117",
+        "activityBar.border": "#6a6e72",
+        "tab.activeBackground": "#0d1117",
+        "tab.activeBorderTop": "#ef0e3b",
+        "tab.border": "#6a6e72",
+        "tab.activeForeground": "#c9d1d9",   // couleur font tab
+        /* "tab.activeBorder":"#d4fe01", */
+        "tab.inactiveBackground":"#010409",  // couleur tab incative
+    },
+    "code-runner.showExecutionMessage": false,
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.runInTerminal": true,
+    "workbench.colorTheme": "One Dark Pro Italic Vivid",
+    "debug.disassemblyView.showSourceCode": false,
+    "git.confirmSync": false
+}
