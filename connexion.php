@@ -53,7 +53,7 @@ if (isset($_POST['login'], $_POST['password'])) {           // récuperation du 
                             <img src="images/account_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="account-logo" class="filter_blue" style="width: 95px;">
                                 <form action="" Method="POST" class="flex-column">
                                     <div class="container_connect">
-                                        <label for="login">Nom d'utilisateur</label>
+                                        <label for="login">Login</label>
                                         <input type="text" name="login" id="log_connec"  placeholder="Login">
                                         <label for="password">Password</label>
                                         <input type="password" name="password" id="log_connec"  placeholder="Password">

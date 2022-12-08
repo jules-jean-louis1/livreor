@@ -38,7 +38,7 @@ button, button:focus, button:hover, button:active {
 ######################################################################################*/
 
 .navbar_{
-	background-color: rgba(255,255,255,.96);
+	background-color: #161B22;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 	border-bottom: 1px solid transparent;
 }
@@ -83,7 +83,7 @@ button, button:focus, button:hover, button:active {
 	font-size: 16px;
 	font-family: 'Chakra Petch', sans-serif;
 	font-weight: 700;
-	color: #4EAFFF;	
+	color: rgba(255,255,255,0.8);	
 }
 #sub_menu {
 	gap: 10px;
@@ -101,7 +101,7 @@ a#logo_title {
 	margin-left: 5px;
 }
 #menu li a:hover {
-	color: #164B78;
+	color: rgba(255,255,255,0.5);
 }
 #menu input {
 	display: none;
@@ -128,7 +128,7 @@ a#logo_title {
 	height: auto;
 	overflow: hidden;
 	width: 150px;
-	background: #ffffff;
+	background: transparent;
 	position: absolute;
 	z-index: 99;
 	display: none;
@@ -139,7 +139,7 @@ a#logo_title {
 	width: 100%;
 }
 #menu ul.sub-menus a {
-    color: #4EAFFF;
+    color: rgba(255,255,255,0.8);
 	font-size: 16px;
 }
 #menu li:hover ul.sub-menus {
@@ -147,7 +147,7 @@ a#logo_title {
 }
 #menu ul.sub-menus a:hover{
 	background: transparent;
-	color: #164B78;
+	color: rgba(255,255,255,0.5);
 }
 .btn_inscri {
     text-transform: capitalize;
@@ -280,7 +280,9 @@ main.position-relative {
 ###################################################################################################*/
 
 .mcontainer2 {
-    background: #fff;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
     margin: 50px 55px;
     display: flex;
     flex-direction: column;
@@ -290,9 +292,9 @@ main.position-relative {
     height: 460px;
 }
 .flex-column {
-    color: #2e9fff;
-    font-family: 'Chakra Petch', sans-serif;
-    font-weight: 900;
+    color: #c9d1d9;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -352,23 +354,26 @@ main.position-relative {
 }
 .btn_change {
     border: 1px solid transparent;
-    border-radius: 50px;
+    border-radius: 6px;
     padding: 10px 15px;
     font-size: 18px;
     font-family: 'Chakra Petch', sans-serif;
 	font-weight: 900;
     color: #fff;
-    background-color: #2e9fff;  
+    background-color: #26a641;  
     display: flex;
     gap: 5px;
     width: 320px;
     text-transform: uppercase;
 }
 .btn_change:hover {
-    background-color: #ffffffb5;
+    background-color: #39d353;
     transition: 5ms ease-in-out;
-    color: #2e9fff;
-    border: 1px solid #2e9fff;
+    color: #fff;
+    border: 1px solid #39d353;
+    transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: color,background-color,box-shadow,border-color;
 }
 .btn_clear_connec{
     display: flex;
@@ -400,9 +405,9 @@ main.position-relative {
     height: 40px;
     padding: 10px;
     width: 250px;
-    border: 1px solid #2e9fff;
-    border-radius: 40px;
-    background: #EDEDED;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    background: #161b22;
 }
 
 
@@ -420,10 +425,10 @@ a {
 .s1_connect {
     width: 950px;
     height: 600px;
-    border-radius: 5px;
-    border: 1px solid #e0e3e9;
-    box-shadow: 0 1px 2px #e0e3e9;
-    background: #2e9fff url(images/back-color.png) no-repeat;
+/*     border-radius: 5px;
+    border: 1px solid #161b22;
+    box-shadow: 0 1px 2px #161b22;
+    background: #161b22 url(images/back-color.png) no-repeat; */
     background-size: cover;
 }
 .wapper_com {
