@@ -8,7 +8,7 @@ $login = "";                // ini des variable pour l'utilisation dans une requ
 $password = "";
 $password_conf = "";
 $check_password= true;
-$sql = "INSERT INTO `utilisateurs` (`login`, `password`) VALUES ('$login', '$password')";
+$sql = "INSERT INTO `utilisateurs` (`id`,`login`, `password`) VALUES (NULL,'$login', '$password')";
 $user_check = "SELECT login FROM utilisateurs WHERE login = '$login'; ";
 $check = mysqli_query($connect, $user_check);
 
