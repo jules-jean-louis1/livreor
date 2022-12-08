@@ -7,9 +7,9 @@ $row = $conn->fetch_all();
 $valid = true;                          // booleen pour les tests des champs vide
 $errors = [];                           // Création d'un tableau pour afficher les erreurs
 if (isset($_POST['login'], $_POST['password'])) {           // récuperation du login et password
-    if (empty($_POST['login'])) {
+    if (empty($_POST['login'])) {       //verification avec empty si le champs 'login' est vide
         $valid = false;
-        $errors['login'] = "Champs login vide.";
+        $errors['login'] = "Champs login vide.";        //
     }
     if (empty($_POST['password'])) {
         $valid = false;
