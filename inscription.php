@@ -51,7 +51,8 @@ if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_index.css">
-    <title>Livre d'or - S'inscrire</title>
+    <link rel="icon" href="images/bbule-logo.png">
+    <title>S'inscrire</title>
 </head>
 <body>
     <?php

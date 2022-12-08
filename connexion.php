@@ -1,6 +1,9 @@
 <?php
 session_start();
 include 'connect.php';      //On inporte la connexion à la base de donnée
+?>
+
+<?php
 
 $conn = mysqli_query($connect, "SELECT * FROM `utilisateurs`");     // requête dans la table utilisateurs
 $row = $conn->fetch_all();

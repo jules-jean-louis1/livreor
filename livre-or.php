@@ -47,6 +47,13 @@ if (isset($_POST['logout'])) {
                             ?>
                         </table>
                     </div>
+                    <div class="comment-add-1">
+                        <?php if (isset($_SESSION['id']) != null) :?>
+                            <a href="commentaire.php"  class="btn_footer3">Ajouter un commentaire</a>
+                            <?php else : ?>
+                            <button class="btn_footer1"><a href="connexion.php">Connecter-vous pour ajouter un commentaire</a></button>
+                        <?php endif ?>
+                    </div>
                 </form>
             </div>
         </section>
