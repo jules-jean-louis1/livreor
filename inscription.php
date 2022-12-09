@@ -44,7 +44,6 @@ $errors = array();          // initialisation de du tableau pour stocker les mes
             }
         }
     }
-echo $_POST['login'], $_POST['password'], $_POST['password_conf'];
 ?>
 
 <!DOCTYPE html>

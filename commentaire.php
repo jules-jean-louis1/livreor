@@ -6,18 +6,17 @@ include 'connect.php';
 <?php if($_SESSION['login'] != null){ ?>
 
 <?php
-$commentaire = "";
-$id = $_SESSION['id'];
-$currentDate = date('Y-m-d H:i:s');
 $valid = true;
 $errors = [];
 
 if (isset($_POST['submit'])) {
-    if ($_POST['message'] != null) {
-        $commentaire = $_POST['message'];
-        $id = $_SESSION['id'];
-        $currentDate = date('H:i:s d-m-Y');;
-        $push_com = mysqli_query($connect,"INSERT INTO `commentaires` (`id`,`commentaire`, `id_utilisateur`, `date`) VALUES (NULL,'$commentaire', '$id', '$currentDate')");
+    $commentaire = mysqli_real_escape_string($connect,htmlspecialchars($_POST['message']));
+    $id = $_SESSION['id'];
+    
+    if ($_POST['message'] !== "") {
+        $requete = "INSERT INTO `commentaires` (`commentaire`, `id_utilisateur`, `date`) VALUES ('$commentaire', '$id', NOW())";
+        $push_com = $connect -> query($requete);
+        header('Location: livre-or.php');
     } else {
         $errors['no_message'] = "Aucun message a poster";
     }
