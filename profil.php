@@ -39,6 +39,13 @@ if (isset($_POST['submit_btn'])) {
             }
         }
     }
+
+if (isset($_POST['delete'])) {
+    $id = $_SESSION['id'];
+    $delete_ac = mysqli_query($connect,"DELETE FROM `utilisateurs` WHERE `utilisateurs`.`id` = '$id'");
+    session_destroy();
+    header('Location: index.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -74,14 +81,16 @@ if (isset($_POST['submit_btn'])) {
                             <input type="text" name="login" id="log_connec" placeholder="Changer de login">
                             <label for=""><?php echo "Password : ".$_SESSION['password'];?></label>
                             <input type="text" name="password" id="log_connec" placeholder="Changer de Mot de passe">
-                            <input type="submit" value="Validé les changements" name="submit_btn" class="btn_change" > 
+                            <input type="submit" value="Valider les changements" name="submit_btn" class="btn_change" > 
                         </form>
                         <div class="btn_clear_connec">
                             <div class="link_com">
                                 <button class="btn_livreor"><a href="livre-or.php">Livre d'or</a></button>
                             </div>
                             <div class="link_com">
-                                <button class="btn_logout_connec"><a href="deconnexion.php">logout</a></button>
+                                <form action="" method="post">
+                                    <input type="submit" value="Supprimer le compte" name="delete" id="delete">
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -25,36 +25,38 @@ if (isset($_POST['logout'])) {
         <section class="warpper_com">
             <div class="profil">
                 <?php echo "Boujour"." ".$_SESSION['login'] ?>
+                <legend>Derniers commentaires</legend>
             </div>
             <div class="container_com">
-                    <legend>Derniers commentaires</legend>
-                    <div class="table-wrapper">
+                <div class="table-wrapper">
                         <table class="fl-table">
-                            <tr>
+                            <tr class="sticky-top">
                                 <th class="th_table_alt1">Date</th>
                                 <th class="th_table_alt1">Auteur</th>
                                 <th class="th_table_alt1">Message</th>
                             </tr>
-                            <?php
-                                for ($i=0; isset($result[$i]) ; $i++) {
-                                    echo "<tr>";
-                                    for ($j=0; isset($result[$i][$j]) ; $j++)
-                                    {
-                                        echo "<td>" . $result[$i][$j] . "</td>";
+                            <div class="generate_tr">
+                                <?php
+                                    for ($i=0; isset($result[$i]) ; $i++) {
+                                        echo "<tr>";
+                                        for ($j=0; isset($result[$i][$j]) ; $j++)
+                                        {
+                                            echo "<td>" . $result[$i][$j] . "</td>";
+                                        }
+                                        echo "</tr>";
                                     }
-                                    echo "</tr>";
-                                }
-                            ?>
+                                ?>
+                            </div>
                         </table>
                     </div>
-                    <div class="comment-add-1">
-                        <?php if (isset($_SESSION['id']) != null) :?>
-                            <a href="commentaire.php"  class="btn_footer3">Ajouter un commentaire</a>
-                            <?php else : ?>
-                            <button class="btn_footer1"><a href="connexion.php">Connecter-vous pour ajouter un commentaire</a></button>
-                        <?php endif ?>
-                    </div>
                 </form>
+            </div>
+            <div class="comment-add-1" style="padding-top: 24px;padding-bottom: 24px;">
+                <?php if (isset($_SESSION['id']) != null) :?>
+                    <a href="commentaire.php"  class="btn_footer3">Ajouter un commentaire</a>
+                    <?php else : ?>
+                    <button class="btn_footer1"><a href="connexion.php">Connecter-vous pour ajouter un commentaire</a></button>
+                <?php endif ?>
             </div>
         </section>
     </main>

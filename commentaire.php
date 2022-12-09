@@ -49,7 +49,6 @@ if (isset($_POST['submit'])) {
                     </div>
                     <form action="" method="post">
                         <div class="error">
-                            <img src="images/cancel_logo.svg" alt="" style="width: 30px;padding-right: 5px;" class="filter_red">
                             <?php foreach($errors as $message):?>
                                 <div><?php echo htmlspecialchars($message); ?></div>
                         <?php endforeach; ?>

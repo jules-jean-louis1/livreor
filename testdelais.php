@@ -1,20 +1,16 @@
+
 <?php
+session_start();
+$_SESSION['login'] = "jules";
+/* echo "<script>alert('Welcome ". $_SESSION['login'] ."');</script>"; */
 
 if (isset($_POST['submit'])) {
-    $currentDate = date('H:i:s d-m-Y');
-    echo $currentDate;
-} else {
-    
+    echo "<script>alert('Welcome ". $_SESSION['login'] ."');</script>";
 }
-
 ?>
 
 <form action="" method="post">
     <input type="submit" value="submit" name="submit">
 </form>
-<?php
-session_start();
-$_SESSION['login'] = "jules";
-echo "<script>alert('Welcome ". $_SESSION['login'] ."');</script>";
-?> 
-{
+
+
