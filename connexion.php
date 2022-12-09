@@ -27,6 +27,11 @@ if (isset($_POST['login'], $_POST['password'])) {           // récuperation du 
                 $errors['succes'] = 'Vous êtez connecter';
                 sleep(2);
                 header('Location: profil.php');
+            } if ($_POST['login'] === 'admin' AND $_POST['password'] === 'admin') {
+                $_SESSION['login'] = $_POST['login'];
+                $_SESSION['password'] = $_POST['password'];
+                $_SESSION['id'] = $row[$i][0];
+                header('Location: admin.php');
             } else {
                 $errors['faild'] = 'Login / Password erroné';
             }

@@ -16,25 +16,21 @@ if (isset($_POST['submit_btn'])) {
     $id = $_SESSION['id'];
     $conn = mysqli_query($connect,"SELECT * FROM `utilisateurs`");
     $row = $conn->fetch_all();
-    $uplogin = "UPDATE `utilisateurs` SET `login` = '$login' WHERE `connexion`.`id` = '$id'";
-    $uppassword = "UPDATE `utilisateurs` SET `password` = '$password' WHERE `connexion`.`id` = '$id'";
+    $uplogin = "UPDATE `utilisateurs` SET `login` = '$login' WHERE `utilisateurs`.`id` = '$id'";
+    $uppassword = "UPDATE `utilisateurs` SET `password` = '$password' WHERE `utilisateurs`.`id` = '$id'";
         if (!empty($_POST['login'])) {
-            if (mysqli_query($mysqli, $uplogin)){
+            if (mysqli_query($connect, $uplogin)){
                 $_SESSION['login'] = $login;
                 $errors['up_login'] = 'Votre Login a bien était mise a jour';
             }
         }
         if (!empty($_POST['password'])) {
-            if (mysqli_query($mysqli, $uppassword)){
+            if (mysqli_query($connect, $uppassword)){
                 $_SESSION['password'] = $password;
                 $errors['up_password'] = 'Votre password a bien était mise a jour';
             }
         }
     }
-if (isset($_POST['logout'])) {
-    session_destroy();
-    header('Location: index.php');
-}
 ?>
 
 <!DOCTYPE html>
@@ -69,8 +65,8 @@ if (isset($_POST['logout'])) {
                             <label for=""><?php echo "Login : ".$_SESSION['login'];?></label>
                             <input type="text" name="login" id="log_connec" placeholder="Changer de login">
                             <label for=""><?php echo "Password : ".$_SESSION['password'];?></label>
-                            <input type="text" name="mdp" id="log_connec" placeholder="Changer de Mot de passe">
-                            <input type="submit" value="Effectuer les changements" name="submit_btn" class="btn_change" > 
+                            <input type="text" name="password" id="log_connec" placeholder="Changer de Mot de passe">
+                            <input type="submit" value="Validé les changements" name="submit_btn" class="btn_change" > 
                         </form>
                         <div class="btn_clear_connec">
                             <div class="link_com">

@@ -29,7 +29,7 @@ if (isset($_POST['logout'])) {
             <div class="container_com">
                     <legend>Derniers commentaires</legend>
                     <div class="table-wrapper">
-                        <table  class="fl-table">
+                        <table class="fl-table">
                             <tr>
                                 <th class="th_table_alt1">Date</th>
                                 <th class="th_table_alt1">Auteur</th>
