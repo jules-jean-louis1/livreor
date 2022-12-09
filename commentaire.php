@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     if ($_POST['message'] != null) {
         $commentaire = $_POST['message'];
         $id = $_SESSION['id'];
-        $currentDate = date('Y-m-d H:i:s');
+        $currentDate = date('H:i:s d-m-Y');;
         $push_com = mysqli_query($connect,"INSERT INTO `commentaires` (`id`,`commentaire`, `id_utilisateur`, `date`) VALUES (NULL,'$commentaire', '$id', '$currentDate')");
     } else {
         $errors['no_message'] = "Aucun message a poster";

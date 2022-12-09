@@ -13,7 +13,7 @@
                             <li>
                                 <?php if (isset($_SESSION['id']) != null) :?>
                                     <!-- <button class="btn_footer1"><a href="profil.php"><?php echo $_SESSION['login'];?></a></button> -->
-                                    <?php elseif ($_SESSION['id'] = 1) :?>
+                                    <?php elseif (isset($_SESSION['id']) === 1) :?>
                                         <button class="btn_footer1"><a href="admin.php">Page Admin</a></button>
                                     <?php else : ?> 
                                     <button class="btn_footer1"><a href="inscription.php">Inscription</a></button>

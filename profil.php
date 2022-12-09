@@ -11,6 +11,8 @@ include 'connect.php';
 $errors = [];
 
 if (isset($_POST['submit_btn'])) {
+
+    
     $login = $_POST['login'];
     $password = $_POST['password'];
     $id = $_SESSION['id'];
@@ -18,11 +20,17 @@ if (isset($_POST['submit_btn'])) {
     $row = $conn->fetch_all();
     $uplogin = "UPDATE `utilisateurs` SET `login` = '$login' WHERE `utilisateurs`.`id` = '$id'";
     $uppassword = "UPDATE `utilisateurs` SET `password` = '$password' WHERE `utilisateurs`.`id` = '$id'";
-        if (!empty($_POST['login'])) {
-            if (mysqli_query($connect, $uplogin)){
-                $_SESSION['login'] = $login;
-                $errors['up_login'] = 'Votre Login a bien était mise a jour';
-            }
+
+    $user_check = "SELECT login FROM utilisateurs WHERE login = '$login'; ";
+    $check = mysqli_query($connect, $user_check);
+
+        if (mysqli_num_rows($check) > 0) {
+                $errors['login2'] = "Ce Login existe déja";
+            }elseif (!empty($_POST['login'])) {
+                if (mysqli_query($connect, $uplogin)){
+                    $_SESSION['login'] = $login;
+                    $errors['up_login'] = 'Votre Login a bien était mise a jour';
+                }
         }
         if (!empty($_POST['password'])) {
             if (mysqli_query($connect, $uppassword)){

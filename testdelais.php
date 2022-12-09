@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_POST['submit'])) {
-    $currentDate = date('Y-m-d H:i:s');
+    $currentDate = date('H:i:s d-m-Y');
     echo $currentDate;
 } else {
     
