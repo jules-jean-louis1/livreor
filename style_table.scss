@@ -1,0 +1,34 @@
+
+
+
+#menu {
+    display: flex;
+  }
+  #sub_menu {
+    display: flex;
+  }
+  .navbarsub {
+    display: flex;
+    justify-content: space-around;
+  }
+
+
+  .table-wrapper {
+    display: flex;
+    width: 106vh;
+  }
+  #test_tr {
+    padding: 10px;
+  }
+  .titre_poster{
+    font-weight: 900;
+    padding: 5px 0px;
+      
+    color: cornflowerblue;
+  }
+  .wapper_commentaire {
+    border: 1px solid gray;
+    border-radius: 6px;
+    padding: 8px 2px;
+    margin: 10px 0px;
+  }

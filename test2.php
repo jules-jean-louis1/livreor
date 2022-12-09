@@ -1,73 +1,62 @@
 <?php
+session_start();
 include 'connect.php';
-
-$valid = true;
-$errors = array();
-$check_password= true;
-$login = $_POST['login'];
-$password = $_POST['password'];
-$password_conf = $_POST['password_conf'];
-$sql = "INSERT INTO `utilisateurs` (`login`, `password`) VALUES ('$login', '$password')";
-$user_check = "SELECT login FROM utilisateurs WHERE login = '$login'; ";
-$check = mysqli_query($connect, $user_check);
-
-// Check if the form has been posted
-if (isset($_POST['login'], $_POST['password'], $_POST['password_conf'])) {
-    if (empty($_POST['login'])) {
-        $valid = false;
-        $errors['login'] = "Le champs login est vide.";
-    }
-    if (empty($_POST['password'])) {
-        $valid = false;
-        $errors['password'] = "Le champs password est vide.";
-    }
-    if (empty($_POST['password_conf'])) {
-        $valid = false;
-        $errors['password_conf'] = "Le champs confirmation du password est vide.";
-    }
-    if ($valid) {
-    }  if (mysqli_num_rows($check) > 0) {
-        $errors['login2'] = "Ce Login existe déja";
-    } elseif ($password === $password_conf) {
-        mysqli_query($connect, $sql);
-        $errors['succes'] = "Votre compte a bien était crée";
-        /* header('Location: connexion.php'); */
-    } else {
-        $errors['diffpassword'] = "les deux password entrée ne correspondent pas";
-    }
+$row = mysqli_query($connect,"SELECT `date`,`login`,`commentaire` FROM `utilisateurs` INNER JOIN `commentaires` WHERE utilisateurs.id = commentaires.id_utilisateur ORDER BY `date` DESC;"); 
+$result = $row->fetch_all();
+if (isset($_POST['logout'])) {
+    session_destroy();
+    header('Location: index.php');
 }
-
+$ssql = "SELECT `date`,`login`,`commentaire` FROM `utilisateurs` INNER JOIN `commentaires` WHERE utilisateurs.id = commentaires.id_utilisateur ORDER BY `date` DESC;";
+$rresult = mysqli_query($connect, $ssql);
+while ($lrow = mysqli_fetch_assoc($rresult)){ 
+    $ret[] = $lrow; 
+  }
 ?>
+
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_table.scss">
+    <link rel="icon" href="images/bbule-logo.png">
+    <title>Section commentaires</title>
 </head>
 <body>
-    <form action="test2.php" method="post" accept-charset="utf-8">
-        <fieldset>
-            <legend>Contact Us</legend>
-                <div class="error">
-                    <?php foreach($errors as $message):?>
-                        <div><?php echo htmlspecialchars($message); ?></div>
-                    <?php endforeach; ?>
+<?php include 'header.php' ?>
+    <main class="main_com">
+        <section class="warpper_com">
+            <div class="profil">
+                <?php echo "Boujour"." ".$_SESSION['login'] ?>
+                <legend>Derniers commentaires</legend>
+            </div>
+            <div class="container_com">
+                <div class="table-wrapper">
+                    <div class="generate_tr" id="test_tr">
+                        <?php
+                            for ($i=0; isset($ret[$i]) ; $i++) { ?>
+                                <div class="wapper_commentaire">
+                                    <div class="titre_poster"><?php echo "Poster le ".$ret[$i]['date'] ." par ". $ret[$i]['login'] ;  ?></div>
+                                    <div class="commentaire_class"><?php echo $ret[$i]['commentaire'];  ?></div>
+                                </div>
+                           <?php } ?>
+                    </div>
                 </div>
-            <div class="row">
-                <input id="log" type="text" name="login" placeholder="Login">
             </div>
-            <div class="row">
-                <input id="log" type="password" name="password" placeholder="Password">
+            <div class="comment-add-1" style="padding-top: 24px;padding-bottom: 24px;">
+                <?php if (isset($_SESSION['id']) != null) :?>
+                    <a href="commentaire.php"  class="btn_footer3">Ajouter un commentaire</a>
+                    <?php else : ?>
+                    <button class="btn_footer1"><a href="connexion.php">Connecter-vous pour ajouter un commentaire</a></button>
+                <?php endif ?>
             </div>
-            <div class="row">
-                <input id="log" type="password" name="password_conf" placeholder="Confirmer le password">
-            </div>
-            <div class="row">
-                <input type="submit" value="s'inscrire">
-            </div>
-        </fieldset>
-    </form>
+        </section>
+    </main>
+<?php
+        include 'footer.php';
+    ?>
 </body>
 </html>
+

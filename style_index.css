@@ -564,16 +564,24 @@ main.main_com {
     align-items: center;
     justify-content: center;
 }
-.container_com {
+.container_com_overflow {
     width: 950px;
     height: 600px;
-	border-radius: 5px;
-	border: 1px solid #e0e3e9;
-	box-shadow: 0 1px 2px #e0e3e9;
-	background: #2e9fff url(images/back-color.png) no-repeat;
-	background-size:cover;	
+    border-radius: 5px;
+    border: 1px solid #e0e3e9;
+    box-shadow: 0 1px 2px #e0e3e9;
+    background: #2e9fff url(images/back-color.png) no-repeat;
+    background-size: cover;
+    overflow: overlay;
 }
 .profil {
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #2e9fff;
+}
+.profil h6 {
     text-align: center;
     font-size: 18px;
     text-transform: uppercase;
@@ -589,118 +597,29 @@ legend{
 }
 /* Table Styles */
 
-.table-wrapper{
-    margin: 10px 70px 20px;
-    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+.com_center {
+    display: flex;
+    width: 90vh;
+    background: #fff;
 }
-.fl-table {
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: normal;
-    border: none;
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 100%;
-    white-space: nowrap;
-    background-color: white;
+.table-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.fl-table td, .fl-table th {
-    text-align: center;
-    padding: 8px;
+#test_tr {
+    padding: 10px;
 }
-
-.fl-table td {
-    border-right: 1px solid #f8f8f8;
-    font-size: 12px;
+.titre_poster{
+    font-weight: 900;
+    padding: 5px 0px;    
+    color: #164b78;
 }
-
-.th_table_alt1 {
-    color: #ffffff;
-    background: #4EAFFF;
-    font-size: 15px;
-    width: 270px;
-}
-
-
-.fl-table thead th:nth-child(odd) {
-    color: #ffffff;
-    background: #324960;
-}
-
-.fl-table tr:nth-child(even) {
-    background: #F8F8F8;
-}
-tr {
-    height: 70px;
-}
-.sticky-top {
-    position: absolute;
-    top: 182px;
-}
-/* Responsive */
-
-@media (max-width: 767px) {
-    .fl-table {
-        display: block;
-        width: 100%;
-    }
-    .table-wrapper:before{
-        content: "Scroll horizontally >";
-        display: block;
-        text-align: right;
-        font-size: 11px;
-        color: white;
-        padding: 0 0 10px;
-    }
-    .fl-table thead, .fl-table tbody, .fl-table thead th {
-        display: block;
-    }
-    .fl-table thead th:last-child{
-        border-bottom: none;
-    }
-    .fl-table thead {
-        float: left;
-    }
-    .fl-table tbody {
-        width: auto;
-        position: relative;
-        overflow-x: auto;
-    }
-    .fl-table td, .fl-table th {
-        padding: 20px .625em .625em .625em;
-        height: 60px;
-        vertical-align: middle;
-        box-sizing: border-box;
-        overflow-x: hidden;
-        overflow-y: auto;
-        width: 120px;
-        font-size: 13px;
-        text-overflow: ellipsis;
-    }
-    .fl-table thead th {
-        text-align: left;
-        border-bottom: 1px solid #f7f7f9;
-    }
-    .fl-table tbody tr {
-        display: table-cell;
-    }
-    .fl-table tbody tr:nth-child(odd) {
-        background: none;
-    }
-    .fl-table tr:nth-child(even) {
-        background: transparent;
-    }
-    .fl-table tr td:nth-child(odd) {
-        background: #F8F8F8;
-        border-right: 1px solid #E6E4E4;
-    }
-    .fl-table tr td:nth-child(even) {
-        border-right: 1px solid #E6E4E4;
-    }
-    .fl-table tbody td {
-        display: block;
-        text-align: center;
-    }
+.wapper_commentaire {
+    background-color: #E6E6E6;
+    border-radius: 6px;
+    padding: 8px 15px;
+    margin: 10px 0px;
 }
 /*###################################################################################################
 #####################################################################################################
@@ -751,9 +670,6 @@ textarea{
 }
 .filter_red {
     filter: invert(30%) sepia(97%) saturate(5759%) hue-rotate(353deg) brightness(106%) contrast(131%);
-}
-.comment-add-1 {
-    padding-left: 70px;
 }
 .btn_footer3 {
     height: 45px;

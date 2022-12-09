@@ -3,7 +3,6 @@ session_start();
 include 'connect.php';
 ?>
 
-<?php if($_SESSION['login'] != null){ ?>
 
 <?php
 $valid = true;
@@ -64,4 +63,3 @@ if (isset($_POST['submit'])) {
 ?>
 </body>
 </html>
-<?php } else{header('location: connexion.php');} ?>
