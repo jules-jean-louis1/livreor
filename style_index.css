@@ -319,7 +319,7 @@ main.position-relative {
     font-family: 'Chakra Petch', sans-serif;
     font-weight: 900;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: column;
     height: 34vh;
     width: 26vh;
@@ -340,7 +340,13 @@ main.position-relative {
     justify-content: space-evenly;
     height: 20vh;
 }
-
+.container_connect p {
+    font-size: 14px;
+    color: #111;
+}
+.container_connect a {
+    color: #2e9fff;
+}
 
 
 

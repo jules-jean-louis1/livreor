@@ -65,7 +65,7 @@ if (isset($_POST['login'], $_POST['password'])) {           // récuperation du 
                                         <input type="text" name="login" id="log_connec"  placeholder="Login">
                                         <label for="password">Password</label>
                                         <input type="password" name="password" id="log_connec"  placeholder="Password">
-                                        <p><a href="inscription.php">S'inscrire</a></p>
+                                        <p>Devenir membre? <a href="inscription.php">S'inscrire</a></p>
                                     </div>
                                     <input type="submit" value="Se connecter" class="btn_change" id="connect_btn">
                                         <div class="error">
