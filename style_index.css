@@ -192,14 +192,12 @@ a#logo_title {
 }
 .btn_co:hover {
     text-transform: capitalize;
-    color: #4EAFFF;
     width: 130px;
     border: 1px solid #164B78;
-    background: #164B78;
     transition: 2.5ms ease-in-out;
 }
 .btn_co a:hover {
-    color: #ffffff;
+    color: #2e9fff;
 	text-decoration: none;
 }
 .btn_co img {
