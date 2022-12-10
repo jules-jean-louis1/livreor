@@ -621,6 +621,15 @@ legend{
     padding: 8px 15px;
     margin: 10px 0px;
 }
+.wapper_commentaire2 {
+    background-color: #E6E6E6;
+    border-radius: 6px;
+    padding: 8px 15px;
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
 /*###################################################################################################
 #####################################################################################################
 ###########################     	SECTION COMMENTAIRE     #########################################

@@ -5,7 +5,14 @@ $ssql = "SELECT `date`,`login`,`commentaire` FROM `utilisateurs` INNER JOIN `com
 $rresult = mysqli_query($connect, $ssql);
 while ($lrow = mysqli_fetch_assoc($rresult)){ 
     $ret[] = $lrow; 
-  }
+}
+/* $query = "SELECT `date2`,`login`,`reply` FROM `tb_reply` INNER JOIN `utilisateurs` WHERE utilisateurs.id = tb_reply.id_user;"; */
+$query = "SELECT `date2`,`login`,`reply`,`commentaire` FROM `tb_reply`,`commentaires` INNER JOIN `utilisateurs` WHERE utilisateurs.id = tb_reply.id_user AND commentaires.id = tb_reply.id_com;";
+$rresult2 = mysqli_query($connect, $query);
+while ($lrow2 = mysqli_fetch_assoc($rresult2)){ 
+    $ret2[] = $lrow2; 
+}
+/* var_dump($ret2); */
 ?>
 
 <!DOCTYPE html>
@@ -39,8 +46,17 @@ while ($lrow = mysqli_fetch_assoc($rresult)){
                                     <div class="wapper_commentaire">
                                         <div class="titre_poster"><?php echo "Poster le ".$ret[$i]['date'] ." par ". $ret[$i]['login'] ;  ?></div>
                                         <div class="commentaire_class"><?php echo $ret[$i]['commentaire'];  ?></div>
+                                        <div class="replybtn"><?php include 'form_reply.php'?></div>
                                     </div>
-                               <?php } ?>
+                                        <div class="wapper_commentaire2">
+                                            <?php for ($j=0; isset($ret2[$j]) ; $j++) {
+                                                if ($ret2[$j]['commentaire'] === $ret[$i]['commentaire'] ) {?>
+                                                <div class="titre_poster"><?php echo "Réponse a ". $ret[$i]['login']." poster le ".$ret2[$j]['date2'] ." par ". $ret2[$j]['login'];?></div>
+                                                <div class="commentaire_class"><?php echo $ret2[$j]['reply'];?></div>
+                                                <?php }
+                                            }?>
+                                        </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
