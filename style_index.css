@@ -608,6 +608,7 @@ legend{
     padding: 10px;
     height: 580px;
     overflow: auto;
+    width: 100%;
   }
 .titre_poster{
     font-weight: 900;
