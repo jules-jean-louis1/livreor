@@ -1,11 +1,12 @@
 <?php
 session_start();
 include 'connect.php';
-$ssql = "SELECT `date`,`login`,`commentaire` FROM `utilisateurs` INNER JOIN `commentaires` WHERE utilisateurs.id = commentaires.id_utilisateur ORDER BY `date` DESC;";
+$ssql = "SELECT `date`,`login`,`commentaire`, commentaires.`id` FROM `utilisateurs` INNER JOIN `commentaires` WHERE utilisateurs.id = commentaires.id_utilisateur ORDER BY `date` DESC;";
 $rresult = mysqli_query($connect, $ssql);
 while ($lrow = mysqli_fetch_assoc($rresult)){ 
     $ret[] = $lrow; 
 }
+
 /* $query = "SELECT `date2`,`login`,`reply` FROM `tb_reply` INNER JOIN `utilisateurs` WHERE utilisateurs.id = tb_reply.id_user;"; */
 $query = "SELECT `date2`,`login`,`reply`,`commentaire` FROM `tb_reply`,`commentaires` INNER JOIN `utilisateurs` WHERE utilisateurs.id = tb_reply.id_user AND commentaires.id = tb_reply.id_com;";
 $rresult2 = mysqli_query($connect, $query);
@@ -45,7 +46,7 @@ while ($lrow2 = mysqli_fetch_assoc($rresult2)){
                                 for ($i=0; isset($ret[$i]) ; $i++) { ?>
                                     <div class="wapper_commentaire">
                                         <div class="titre_poster"><?php echo "Poster le ".$ret[$i]['date'] ." par ". $ret[$i]['login'] ;  ?></div>
-                                        <div class="commentaire_class"><?php echo $ret[$i]['commentaire'];  ?></div>
+                                        <div class="commentaire_class"><?php echo $ret[$i]['commentaire'];  ?><?php $_SESSION['id_com'] = $ret[$i]['id'];$_SESSION['com'] = $ret[$i]['commentaire'];?></div>
                                         <div class="replybtn"><?php include 'form_reply.php'?></div>
                                     </div>
                                         <div class="wapper_commentaire2">

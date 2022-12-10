@@ -1,10 +1,11 @@
+<?php session_start();
+?>
 
 
 
 
 
-
-
+<?php echo $_SESSION['com']; ?>
 
 <main>
     <form action="" method="post">
