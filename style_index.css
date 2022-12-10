@@ -184,19 +184,15 @@ a#logo_title {
 	font-family: 'Chakra Petch', sans-serif;
 	font-weight: 700;
 }
-.btn_co a {
-    color: #4EAFFF;
-	text-decoration: none;
+a:link.btn_co {
+    color: #2e9fff;
 }
 .btn_co:hover {
     text-transform: capitalize;
     width: 130px;
-    border: 1px solid #164B78;
-    transition: 2.5ms ease-in-out;
-}
-.btn_co a:hover {
+    background-color: #164B78;
     color: #2e9fff;
-	text-decoration: none;
+    transition: 2.5ms ease-in-out;
 }
 .btn_co img {
 	width: 22px;
@@ -572,7 +568,6 @@ main.main_com {
     box-shadow: 0 1px 2px #e0e3e9;
     background: #2e9fff url(images/back-color.png) no-repeat;
     background-size: cover;
-    overflow: overlay;
 }
 .profil {
     text-align: center;
@@ -606,10 +601,14 @@ legend{
     display: flex;
     align-items: center;
     justify-content: center;
-}
+    overflow: scroll;
+    margin-top: 10px;
+  }
 #test_tr {
     padding: 10px;
-}
+    height: 580px;
+    overflow: auto;
+  }
 .titre_poster{
     font-weight: 900;
     padding: 5px 0px;    
@@ -621,7 +620,17 @@ legend{
     padding: 8px 15px;
     margin: 10px 0px;
 }
-
+#button_poster {
+    width: -webkit-fill-available;
+    width: -moz-available;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+#button_poster:hover {
+    color: #fff;
+    background-color: #2e9fff;
+}
 /*###################################################################################################
 #####################################################################################################
 ###########################     	SECTION COMMENTAIRE     #########################################

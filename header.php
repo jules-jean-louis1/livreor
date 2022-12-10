@@ -38,10 +38,10 @@
                                 <a href="profil.php"><?php echo $_SESSION['login'];?></a>
                             </button>
                         <?php else : ?>
-                            <button class="btn_co">
-                            <img src="images/account_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="" class="filter_blue">
-                                <a href='connexion.php'>Se connecter</a>
-                            </button>
+                                <a href='connexion.php' class="btn_co">
+                                    <img src="images/account_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="" class="filter_blue">
+                                    Se connecter
+                                </a>
                         <?php endif ?>
                     </li>
                 </ul>

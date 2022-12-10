@@ -25,8 +25,7 @@ if (isset($_POST['login'], $_POST['password'])) {           // récuperation du 
                 $_SESSION['password'] = $_POST['password'];
                 $_SESSION['id'] = $row[$i][0];
                 $errors['succes'] = 'Vous êtez connecter';
-                sleep(2);
-                header('Location: profil.php');
+                header('Location: livre-or.php');
             } if ($_POST['login'] === 'admin' AND $_POST['password'] === 'admin') {
                 $_SESSION['login'] = $_POST['login'];
                 $_SESSION['password'] = $_POST['password'];

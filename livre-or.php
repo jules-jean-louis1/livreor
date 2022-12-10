@@ -23,7 +23,7 @@ while ($lrow = mysqli_fetch_assoc($rresult)){
     <main class="main_com">
         <section class="warpper_com">
             <div class="profil">
-                <?php if (isset($_SESSION['id']) !== "") { ?>
+                <?php if (isset($_SESSION['id']) !== null) { ?>
                     <h6>Bonjour</h6>
                 <?php } else { ?>
                     <h6><?php echo "Boujour"." ".$_SESSION['login']; ?></h6>
@@ -47,9 +47,9 @@ while ($lrow = mysqli_fetch_assoc($rresult)){
             </div>
             <div class="comment-add-1" style="padding-top: 24px;padding-bottom: 24px;">
                 <?php if (isset($_SESSION['id']) != null) :?>
-                    <a href="commentaire.php"  class="btn_footer3">Ajouter un commentaire</a>
+                    <a href="commentaire.php"  class="btn_footer3" id="button_poster">Ajouter un commentaire</a>
                     <?php else : ?>
-                    <button class="btn_footer1"  style="width:-webkit-fill-available;"><a href="connexion.php">Connecter-vous pour ajouter un commentaire</a></button>
+                    <a href="connexion.php" class="btn_footer1" id="button_poster">Connecter-vous pour ajouter un commentaire</a>
                 <?php endif ?>
             </div>
         </section>
